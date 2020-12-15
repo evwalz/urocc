@@ -1,5 +1,7 @@
 # src/urocc/__init__.py
 
-from .eval_tools import cpa, uroc, rocm
+from .cpa import cpa
+from .uroc import uroc
+from .rocm import rocm
 
 
