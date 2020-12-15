@@ -11,7 +11,7 @@ For more information see: https://arxiv.org/abs/1912.01956
 Installation
 ------------
 
-You can install the latest version of uroc from Github with:
+You can install the latest version of urocc from Github with:
 
 ``` r
 
