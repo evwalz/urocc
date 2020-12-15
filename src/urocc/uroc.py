@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 from scipy.stats import rankdata
 from sklearn.metrics import roc_curve
 from progressbar import progressbar
+from tqdm import tqdm
 
 class uroc_object:
     def __init__(self, farate, hitrate):
@@ -91,7 +92,7 @@ def uroc (response, predictor):
     tpr_interpolated = np.array(np.interp(interpoint, fpr/ncontrol[0], tpr)) * ncontrol[0]
     sum_tpr_fpr = np.sum([fpr_weight, tpr_weight], axis=0)
 
-    for i in progressbar(range(1, (N - 1))):
+    for i in tqdm(range(1, (N - 1))):
         sorted_split_element = np.sort(np.append(split_classes_predictor[i], 0))
         diff_split_element = np.diff(sorted_split_element)
         m = diff_split_element.shape[0]
