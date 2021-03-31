@@ -33,12 +33,12 @@ def cpa(response, predictor):
     if np.isnan(np.sum(predictor)) == True:
         ValueError("forecast contains nan values")
 	
-    responseOrder = np.argsort(response)
-    responseSort = response[responseOrder] 
-    forecastSort = predictor[responseOrder]                
-    forecastRank = rankdata(forecastSort, method='average')
-    responseRank = rankdata(responseSort, method='average')
-    responseClass = rankdata(responseSort, method='dense')
+    #responseOrder = np.argsort(response)
+    #responseSort = response[responseOrder] 
+    #forecastSort = predictor[responseOrder]                
+    forecastRank = rankdata(predictor, method='average')
+    responseRank = rankdata(response, method='average')
+    responseClass = rankdata(response, method='dense')
     
     return((np.cov(responseClass,forecastRank)[0][1]/np.cov(responseClass,responseRank)[0][1]+1)/2) 
 	
